@@ -12,7 +12,7 @@ import rootReducer from './store';
 import PageLayout from './layout';
 import { GlobalContext } from './context';
 import Login from './pages/login';
-import checkLogin from './utils/checkLogin';
+import { checkLogin, logout } from './utils/checkLogin';
 import changeTheme from './utils/changeTheme';
 import useStorage from './utils/useStorage';
 import './mock';
@@ -34,23 +34,32 @@ function Index() {
     }
   }
 
-  function fetchUserInfo() {
+  /** 获取用户信息 */
+  async function fetchUserInfo() {
     store.dispatch({
       type: 'update-userInfo',
       payload: { userLoading: true },
     });
-    axios.get('/api/user/userInfo').then((res) => {
+    const result = await axios.get('/api/admin/whoami');
+    /** 代表着用户未登录 */
+    if (result.code === 401) {
+      /** 说明用户没登陆或者登录已过期 */
+      logout();
+      window.location.pathname = '/login';
+    } else {
       store.dispatch({
         type: 'update-userInfo',
-        payload: { userInfo: res.data, userLoading: false },
+        payload: { userInfo: result.data, userLoading: false },
       });
-    });
+    }
   }
 
   useEffect(() => {
+    /** 判断之前是否登录过 登陆过就有 token 然后再获取用户信息 */
     if (checkLogin()) {
       fetchUserInfo();
     } else if (window.location.pathname.replace(/\//g, '') !== 'login') {
+      /** 如果之前没有登录过且不再登录页则跳转到登录页 */
       window.location.pathname = '/login';
     }
   }, []);

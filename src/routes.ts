@@ -163,6 +163,7 @@ export const getName = (path: string, routes) => {
   });
 };
 
+/** 生成权限 */
 export const generatePermission = (role: string) => {
   const actions = role === 'admin' ? ['*'] : ['read'];
   const result = {};

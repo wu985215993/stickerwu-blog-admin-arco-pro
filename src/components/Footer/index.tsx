@@ -3,12 +3,14 @@ import { Layout } from '@arco-design/web-react';
 import { FooterProps } from '@arco-design/web-react/es/Layout/interface';
 import cs from 'classnames';
 import styles from './style/index.module.less';
-
+/**
+ * @name 底部栏
+ */
 function Footer(props: FooterProps = {}) {
   const { className, ...restProps } = props;
   return (
     <Layout.Footer className={cs(styles.footer, className)} {...restProps}>
-      Arco Design Pro
+      StickerWu Blog Admin
     </Layout.Footer>
   );
 }

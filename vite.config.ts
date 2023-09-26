@@ -6,6 +6,19 @@ import setting from './src/settings.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    proxy: {
+      '/res': {
+        target: 'http://8.130.39.8:7001',
+      },
+      '/api': {
+        target: 'http://8.130.39.8:7001',
+      },
+      '/static': {
+        target: 'http://8.130.39.8:7001',
+      },
+    },
+  },
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
   },
@@ -15,10 +28,7 @@ export default defineConfig({
       svgrOptions: {},
     }),
     vitePluginForArco({
-      theme: '@arco-themes/react-arco-pro',
-      modifyVars: {
-        'arcoblue-6': setting.themeColor,
-      },
+      theme: '@arco-themes/react-juzi001',
     }),
   ],
   css: {

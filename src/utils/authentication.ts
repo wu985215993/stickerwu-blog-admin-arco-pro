@@ -27,6 +27,11 @@ const judge = (actions: string[], perm: string[]) => {
 };
 
 const auth = (params: Auth, userPermission: UserPermission) => {
+  console.log(
+    '%c [ userPermission ]-30',
+    'font-size:13px; background:pink; color:#bf2c9f;',
+    userPermission
+  );
   const { resource, actions = [] } = params;
   if (resource instanceof RegExp) {
     const permKeys = Object.keys(userPermission);
@@ -46,6 +51,11 @@ const auth = (params: Auth, userPermission: UserPermission) => {
 
 export default (params: AuthParams, userPermission: UserPermission) => {
   const { requiredPermissions, oneOfPerm } = params;
+  console.log(
+    '%c [ params ]-54',
+    'font-size:13px; background:pink; color:#bf2c9f;',
+    params
+  );
   if (Array.isArray(requiredPermissions) && requiredPermissions.length) {
     let count = 0;
     for (const rp of requiredPermissions) {

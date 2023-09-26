@@ -89,6 +89,7 @@ function PageLayout() {
   const pathname = history.location.pathname;
   const currentComponent = qs.parseUrl(pathname).url.slice(1);
   const locale = useLocale();
+  /** 获取用户权限与配置 */
   const { settings, userLoading, userInfo } = useSelector(
     (state: GlobalState) => state
   );

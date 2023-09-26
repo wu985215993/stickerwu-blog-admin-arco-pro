@@ -18,6 +18,7 @@
     "@arco-design/web-react": "^2.32.2",
     "@arco-plugins/vite-react": "^1.0.5",
     "@arco-themes/react-arco-pro": "^0.0.7",
+    "@arco-themes/react-juzi001": "^0.0.1",
     "@loadable/component": "^5.13.2",
     "@turf/turf": "^6.5.0",
     "arco-design-pro": "^2.8.0",
