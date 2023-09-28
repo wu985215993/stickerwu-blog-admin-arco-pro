@@ -32,17 +32,16 @@ export default function store(state = initialState, action) {
     case 'update-userInfo': {
       const { userInfo = initialState.userInfo, userLoading } = action.payload;
       console.log(
-        '%c [  action.payload ]-34',
+        '%c [ action.payload ]-34',
         'font-size:13px; background:pink; color:#bf2c9f;',
         action.payload
       );
-
       return {
         ...state,
         userLoading,
         userInfo: {
           ...userInfo,
-          // TODO
+          // TODO 后期如果需要加入别的角色登录需要更改这里
           permissions: {},
         },
       };

@@ -13,6 +13,7 @@ import {
   IconUser,
   IconMenuFold,
   IconMenuUnfold,
+  IconHome,
 } from '@arco-design/web-react/icon';
 import { useSelector } from 'react-redux';
 import qs from 'query-string';
@@ -33,6 +34,7 @@ const SubMenu = Menu.SubMenu;
 const Sider = Layout.Sider;
 const Content = Layout.Content;
 
+/** 配置菜单 Icon */
 function getIconFromKey(key) {
   switch (key) {
     case 'dashboard':
@@ -51,6 +53,8 @@ function getIconFromKey(key) {
       return <IconExclamationCircle className={styles.icon} />;
     case 'user':
       return <IconUser className={styles.icon} />;
+    case 'home':
+      return <IconHome className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }

@@ -21,6 +21,7 @@ const mockPie = () => {
 };
 
 setupMock({
+  mock: false,
   setup: () => {
     Mock.mock(new RegExp('/api/data-analysis/overview'), (params) => {
       const { type } = qs.parseUrl(params.url).query;

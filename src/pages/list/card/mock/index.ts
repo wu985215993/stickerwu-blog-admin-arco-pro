@@ -94,6 +94,8 @@ const getRulesCard = () => {
 };
 
 setupMock({
+  mock: false,
+
   setup: () => {
     Mock.mock(new RegExp('/api/cardList'), () => {
       return {

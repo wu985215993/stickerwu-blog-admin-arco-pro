@@ -2,6 +2,7 @@ import Mock from 'mockjs';
 import setupMock from '@/utils/setupMock';
 
 setupMock({
+  mock: false,
   setup: () => {
     Mock.mock(new RegExp('/api/chatList'), () => {
       const data = Mock.mock({

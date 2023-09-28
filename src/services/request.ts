@@ -2,13 +2,18 @@ import axios from 'axios';
 import { Message } from '@arco-design/web-react';
 /** 初始化 axios 配置 */
 export const service = axios.create({
-  timeout: 5000,
+  timeout: 20000,
 });
 
 /** 配置请求拦截器 */
 service.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('adminToken');
+    console.log(
+      '%c [ token ]-12',
+      'font-size:13px; background:pink; color:#bf2c9f;',
+      token
+    );
     // 判断是否存在token
     if (token) {
       config.headers['Authorization'] = 'Bearer ' + token;

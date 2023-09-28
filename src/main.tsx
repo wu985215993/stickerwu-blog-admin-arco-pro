@@ -7,7 +7,6 @@ import { ConfigProvider } from '@arco-design/web-react';
 import zhCN from '@arco-design/web-react/es/locale/zh-CN';
 import enUS from '@arco-design/web-react/es/locale/en-US';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import axios from 'axios';
 import rootReducer from './store';
 import PageLayout from './layout';
 import { GlobalContext } from './context';
@@ -15,6 +14,7 @@ import Login from './pages/login';
 import { checkLogin, logout } from './utils/checkLogin';
 import changeTheme from './utils/changeTheme';
 import useStorage from './utils/useStorage';
+import { requestUserInfo } from './services';
 import './mock';
 
 const store = createStore(rootReducer);
@@ -40,7 +40,7 @@ function Index() {
       type: 'update-userInfo',
       payload: { userLoading: true },
     });
-    const result = await axios.get('/api/admin/whoami');
+    const { data: result } = await requestUserInfo();
     /** 代表着用户未登录 */
     if (result.code === 401) {
       /** 说明用户没登陆或者登录已过期 */
@@ -49,14 +49,15 @@ function Index() {
     } else {
       store.dispatch({
         type: 'update-userInfo',
-        payload: { userInfo: result.data, userLoading: false },
+        payload: { userInfo: result, userLoading: false },
       });
     }
   }
 
   useEffect(() => {
     /** 判断之前是否登录过 登陆过就有 token 然后再获取用户信息 */
-    if (checkLogin()) {
+    const isLogined = checkLogin();
+    if (isLogined) {
       fetchUserInfo();
     } else if (window.location.pathname.replace(/\//g, '') !== 'login') {
       /** 如果之前没有登录过且不再登录页则跳转到登录页 */

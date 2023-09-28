@@ -30,6 +30,16 @@ export const routes: IRoute[] = [
     ],
   },
   {
+    name: 'menu.home',
+    key: 'home',
+    children: [
+      {
+        name: 'menu.home.banner',
+        key: 'banner',
+      },
+    ],
+  },
+  {
     name: 'menu.visualization',
     key: 'visualization',
     children: [
