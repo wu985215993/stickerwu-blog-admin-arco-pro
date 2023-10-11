@@ -6,5 +6,6 @@ export const checkLogin = () => {
 
 /** 退出登录移除token */
 export const logout = () => {
-  return localStorage.removeItem('adminToken');
+  localStorage.removeItem('adminToken')
+  window.location.pathname = '/login';
 };

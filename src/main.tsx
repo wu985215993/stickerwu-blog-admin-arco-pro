@@ -45,7 +45,6 @@ function Index() {
     if (result.code === 401) {
       /** 说明用户没登陆或者登录已过期 */
       logout();
-      window.location.pathname = '/login';
     } else {
       store.dispatch({
         type: 'update-userInfo',

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Message } from '@arco-design/web-react';
+import { logout } from '@/utils/checkLogin';
 /** 初始化 axios 配置 */
 export const service = axios.create({
   timeout: 20000,
@@ -34,6 +35,12 @@ service.interceptors.response.use(
       // 响应头里面如果有这个字段，我们需要将这个字段存储到 localstorage，之后的请求都需要将这个 token 带到服务器
       // 这一步很重要，一定要将 token 存储到本地
       localStorage.adminToken = response.headers.authentication;
+    }
+    if (
+      response.data.code === 401 &&
+      response.data.msg === '未登录，或者登录过期'
+    ) {
+      logout();
     }
     return response.data; // 响应放行
   },
