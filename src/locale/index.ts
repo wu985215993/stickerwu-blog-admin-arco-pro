@@ -60,6 +60,8 @@ const i18n = {
     'navbar.search.placeholder': 'Please search',
     'menu.home': 'Home',
     'menu.home.banner': 'Banner',
+    'menu.blog': 'Article Management',
+    'menu.blog.blogList': 'Article List',
   },
   'zh-CN': {
     'menu.dashboard': '仪表盘',
@@ -120,6 +122,8 @@ const i18n = {
     'navbar.search.placeholder': '输入内容查询',
     'menu.home': '首页',
     'menu.home.banner': '首页标语',
+    'menu.blog': '文章管理',
+    'menu.blog.blogList': '文章列表',
   },
 };
 

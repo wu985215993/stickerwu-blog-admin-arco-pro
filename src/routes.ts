@@ -40,6 +40,16 @@ export const routes: IRoute[] = [
     ],
   },
   {
+    name: 'menu.blog',
+    key: 'blog',
+    children: [
+      {
+        name: 'menu.blog.blogList',
+        key: 'blog/list',
+      },
+    ],
+  },
+  {
     name: 'menu.visualization',
     key: 'visualization',
     children: [

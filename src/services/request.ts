@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Message } from '@arco-design/web-react';
+import { Message, Notification } from '@arco-design/web-react';
 import { logout } from '@/utils/checkLogin';
 /** 初始化 axios 配置 */
 export const service = axios.create({
@@ -41,6 +41,13 @@ service.interceptors.response.use(
       response.data.msg === '未登录，或者登录过期'
     ) {
       logout();
+    }
+    // TODO 优化 接口报错前端兼容处理下
+    if (response.data.code === 500) {
+      Notification.error({
+        content: response.data.code + '：' + response.data.msg,
+      });
+      throw new Error(response.data.msg);
     }
     return response.data; // 响应放行
   },
