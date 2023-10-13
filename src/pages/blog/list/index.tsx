@@ -8,6 +8,7 @@ import {
   Typography,
   Space,
   Modal,
+  Tooltip,
 } from '@arco-design/web-react';
 import { getBlogList, deleteBlogById } from '@/services';
 import { useRequest } from 'ahooks';
@@ -55,7 +56,7 @@ function BlogList() {
         loading: deleteLoading,
       },
       onCancel: () => {
-        Message.info('已取消删除文章');
+        Message.info('已取消文章分类');
       },
     });
   }
@@ -125,14 +126,18 @@ function BlogList() {
       render(col, item) {
         return (
           <Space>
-            <Button type="primary" status="warning" icon={<IconEdit />} />
-            <Button
-              type="secondary"
-              status="danger"
-              icon={<IconDelete />}
-              className={styles.deleteIcon}
-              onClick={() => onDeleteBlog(item.id)}
-            />
+            <Tooltip content="编辑">
+              <Button type="primary" status="warning" icon={<IconEdit />} />
+            </Tooltip>
+            <Tooltip content="删除">
+              <Button
+                type="secondary"
+                status="danger"
+                icon={<IconDelete />}
+                className={styles.deleteIcon}
+                onClick={() => onDeleteBlog(item.id)}
+              />
+            </Tooltip>
           </Space>
         );
       },

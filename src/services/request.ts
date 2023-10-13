@@ -49,6 +49,12 @@ service.interceptors.response.use(
       });
       throw new Error(response.data.msg);
     }
+    if (response.data.code !== 0) {
+      Notification.error({
+        content: response.data.code + '：' + response.data.msg,
+      });
+      throw new Error(response.data.msg);
+    }
     return response.data; // 响应放行
   },
   (error) => {

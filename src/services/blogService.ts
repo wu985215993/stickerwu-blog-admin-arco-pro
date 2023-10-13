@@ -1,5 +1,4 @@
 import { service } from './request';
-// 首页标语
 /** 获取博客文章列表 */
 export const getBlogList: (
   page: number,

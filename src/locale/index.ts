@@ -62,6 +62,7 @@ const i18n = {
     'menu.home.banner': 'Banner',
     'menu.blog': 'Article Management',
     'menu.blog.blogList': 'Article List',
+    'menu.blog.blogTypeList': 'Article Type',
   },
   'zh-CN': {
     'menu.dashboard': '仪表盘',
@@ -124,6 +125,7 @@ const i18n = {
     'menu.home.banner': '首页标语',
     'menu.blog': '文章管理',
     'menu.blog.blogList': '文章列表',
+    'menu.blog.blogTypeList': '文章分类',
   },
 };
 

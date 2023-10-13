@@ -47,6 +47,10 @@ export const routes: IRoute[] = [
         name: 'menu.blog.blogList',
         key: 'blog/list',
       },
+      {
+        name: 'menu.blog.blogTypeList',
+        key: 'blog/type',
+      },
     ],
   },
   {
