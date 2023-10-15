@@ -10,11 +10,6 @@ export const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('adminToken');
-    console.log(
-      '%c [ token ]-12',
-      'font-size:13px; background:pink; color:#bf2c9f;',
-      token
-    );
     // 判断是否存在token
     if (token) {
       config.headers['Authorization'] = 'Bearer ' + token;

@@ -31,11 +31,6 @@ export default function store(state = initialState, action) {
     }
     case 'update-userInfo': {
       const { userInfo = initialState.userInfo, userLoading } = action.payload;
-      console.log(
-        '%c [ action.payload ]-34',
-        'font-size:13px; background:pink; color:#bf2c9f;',
-        action.payload
-      );
       return {
         ...state,
         userLoading,

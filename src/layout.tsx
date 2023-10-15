@@ -76,7 +76,6 @@ function getFlattenRoutes(routes) {
           route.component = lazyload(mod[`./pages/${route.key}/index.tsx`]);
           res.push(route);
         } catch (e) {
-          console.log(route.key);
           console.error(e);
         }
       }

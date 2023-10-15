@@ -9,10 +9,12 @@ import {
   Space,
   Modal,
   Tooltip,
+  Image,
 } from '@arco-design/web-react';
 import { getBlogList, deleteBlogById } from '@/services';
 import { useRequest } from 'ahooks';
 import { IconEdit, IconDelete } from '@arco-design/web-react/icon';
+import { useHistory } from 'react-router-dom';
 import styles from './styles/index.module.less';
 import dayjs from 'dayjs';
 
@@ -21,6 +23,7 @@ const { Paragraph } = Typography;
  * @name 文章列表
  */
 function BlogList() {
+  const history = useHistory();
   const {
     runAsync,
     loading,
@@ -45,7 +48,9 @@ function BlogList() {
   );
 
   /** 跳转到文章编辑 */
-  function goToEditVBlog() {}
+  function goToEditVBlog(id) {
+    history.push(`/blog/editBlog?id=${id}`);
+  }
   /** 点击删除文章按钮 */
   function onDeleteBlog(id) {
     Modal.confirm({
@@ -72,19 +77,28 @@ function BlogList() {
       dataIndex: 'title',
     },
     {
+      title: '文章头图',
+      dataIndex: 'thumb',
+      render(col, item, index) {
+        return <Image src={col} width={100} />;
+      },
+    },
+    {
       title: '文章描述',
       dataIndex: 'description',
       render(col, item, index) {
         return (
-          <Paragraph
-            ellipsis={{
-              rows: 1,
-              showTooltip: true,
-              wrapper: 'div',
-            }}
-          >
-            {col}
-          </Paragraph>
+          <div>
+            <Paragraph
+              ellipsis={{
+                rows: 1,
+                showTooltip: true,
+                wrapper: 'div',
+              }}
+            >
+              {col}
+            </Paragraph>
+          </div>
         );
       },
     },
@@ -127,7 +141,12 @@ function BlogList() {
         return (
           <Space>
             <Tooltip content="编辑">
-              <Button type="primary" status="warning" icon={<IconEdit />} />
+              <Button
+                type="primary"
+                status="warning"
+                icon={<IconEdit />}
+                onClick={() => goToEditVBlog(item.id)}
+              />
             </Tooltip>
             <Tooltip content="删除">
               <Button

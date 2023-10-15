@@ -13,3 +13,13 @@ export const getBlogList: (
 
 /** 删除文章 */
 export const deleteBlogById = (id) => service.delete(`/api/blog/${id}`);
+
+/** 获取单篇文章详情 */
+export const getBlogById = (id) => service.get(`/api/blog/${id}`);
+
+/** 更新文章想去 */
+export const upodateBlogById = (params) =>
+  service.put(`/api/blog/${params.id}`, params);
+
+/** 新增文章 */
+export const addBlog = (data) => service.post(`/api/blog`, data);
