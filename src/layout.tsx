@@ -61,6 +61,8 @@ function getIconFromKey(key) {
       return <IconBook className={styles.icon} />;
     case 'project':
       return <IconGithub className={styles.icon} />;
+    case 'about':
+      return <IconUser className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }

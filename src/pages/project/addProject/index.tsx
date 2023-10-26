@@ -12,11 +12,6 @@ export default function AddProject() {
     try {
       setBtnLoading(true);
       const values = await form.validate();
-      console.log(
-        '%c [ values ]-13',
-        'font-size:13px; background:pink; color:#bf2c9f;',
-        values
-      );
       const params = omit(
         {
           ...values,
@@ -30,8 +25,6 @@ export default function AddProject() {
       await addProject(params);
       Message.success('添加成功');
       history.push('/project/list');
-    } catch (error) {
-      Message.error(error.message);
     } finally {
       setBtnLoading(false);
     }
