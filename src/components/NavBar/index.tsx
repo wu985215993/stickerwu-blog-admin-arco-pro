@@ -39,7 +39,10 @@ import { generatePermission } from '@/routes';
 
 function Navbar({ show }: { show: boolean }) {
   const t = useLocale();
-  const { userInfo, userLoading } = useSelector((state: GlobalState) => state);
+  const { userInfo, webSiteInfo, userLoading } = useSelector(
+    (state: GlobalState) => state
+  );
+
   const dispatch = useDispatch();
 
   const [_, setUserStatus] = useStorage('userStatus');
@@ -203,7 +206,7 @@ function Navbar({ show }: { show: boolean }) {
                 {userLoading ? (
                   <IconLoading />
                 ) : (
-                  <img alt="avatar" src={userInfo.avatar} />
+                  <img alt="avatar" src={webSiteInfo.avatar} />
                 )}
               </Avatar>
             </Dropdown>

@@ -16,6 +16,7 @@ import changeTheme from './utils/changeTheme';
 import useStorage from './utils/useStorage';
 import { requestUserInfo } from './services';
 import './mock';
+import { getSetting } from './services/settingService';
 
 const store = createStore(rootReducer);
 
@@ -46,9 +47,11 @@ function Index() {
       /** 说明用户没登陆或者登录已过期 */
       logout();
     } else {
+      /** 获取网站信息 */
+      const { data: webSiteInfo } = await getSetting();
       store.dispatch({
         type: 'update-userInfo',
-        payload: { userInfo: result, userLoading: false },
+        payload: { userInfo: result, webSiteInfo, userLoading: false },
       });
     }
   }

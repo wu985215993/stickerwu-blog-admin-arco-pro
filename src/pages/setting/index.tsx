@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
   Message,
+  Image,
 } from '@arco-design/web-react';
 import { UploadImage } from '@/components';
 import React, { useEffect, useState } from 'react';
@@ -122,6 +123,8 @@ export default function Setting() {
         >
           <Input />
         </Form.Item>
+        <Typography.Title heading={5}>网站图标预览</Typography.Title>
+        <Image width={50} src={data?.data?.favicon} />
         <Divider />
         <Typography.Title heading={5}>Github信息</Typography.Title>
         <Form.Item

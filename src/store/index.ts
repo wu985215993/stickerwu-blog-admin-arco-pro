@@ -11,6 +11,7 @@ export interface GlobalState {
     permissions: Record<string, string[]>;
   };
   userLoading?: boolean;
+  webSiteInfo?: Record<string, string>;
 }
 
 const initialState: GlobalState = {
@@ -18,6 +19,7 @@ const initialState: GlobalState = {
   userInfo: {
     permissions: {},
   },
+  webSiteInfo: {},
 };
 
 export default function store(state = initialState, action) {
@@ -30,7 +32,11 @@ export default function store(state = initialState, action) {
       };
     }
     case 'update-userInfo': {
-      const { userInfo = initialState.userInfo, userLoading } = action.payload;
+      const {
+        userInfo = initialState.userInfo,
+        userLoading,
+        webSiteInfo,
+      } = action.payload;
       return {
         ...state,
         userLoading,
@@ -39,6 +45,7 @@ export default function store(state = initialState, action) {
           // TODO 后期如果需要加入别的角色登录需要更改这里
           permissions: {},
         },
+        webSiteInfo: webSiteInfo || state.webSiteInfo,
       };
     }
     default:
