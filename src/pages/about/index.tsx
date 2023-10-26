@@ -7,7 +7,7 @@ export default function About() {
     onError: () => Message.error('获取我的信息失败'),
   });
 
-  const [diabled, { toggle }] = useToggle(true);
+  const [diabled, { toggle, set }] = useToggle(true);
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [form] = Form.useForm();
   async function handleBtn() {
@@ -19,7 +19,10 @@ export default function About() {
         const params = await form.validate();
         await editAbout(params);
         Message.success('更新成功');
+        set(true);
       }
+    } catch {
+      set(false);
     } finally {
       setBtnLoading(false);
     }

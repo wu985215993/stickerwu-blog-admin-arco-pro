@@ -69,6 +69,7 @@ const i18n = {
     'menu.project.projectList': 'Project List',
     'menu.project.addProject': 'Add Project',
     'menu.about': 'About Me',
+    'menu.setting': 'Setting',
   },
   'zh-CN': {
     'menu.dashboard': '仪表盘',
@@ -138,6 +139,7 @@ const i18n = {
     'menu.project.projectList': '项目列表',
     'menu.project.addProject': '添加项目',
     'menu.about': '关于我',
+    'menu.setting': '设置',
   },
 };
 
