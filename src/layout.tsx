@@ -15,6 +15,7 @@ import {
   IconMenuUnfold,
   IconHome,
   IconBook,
+  IconGithub,
 } from '@arco-design/web-react/icon';
 import { useSelector } from 'react-redux';
 import qs from 'query-string';
@@ -58,6 +59,8 @@ function getIconFromKey(key) {
       return <IconHome className={styles.icon} />;
     case 'blog':
       return <IconBook className={styles.icon} />;
+    case 'project':
+      return <IconGithub className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }

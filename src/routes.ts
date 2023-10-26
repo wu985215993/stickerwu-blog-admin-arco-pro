@@ -59,6 +59,21 @@ export const routes: IRoute[] = [
     ],
   },
   {
+    name: 'menu.project',
+    key: 'project',
+    children: [
+      {
+        name: 'menu.project.projectList',
+        key: 'project/list',
+      },
+      {
+        name: 'menu.project.addProject',
+        key: 'project/addProject',
+        breadcrumb: false,
+      },
+    ],
+  },
+  {
     name: 'menu.visualization',
     key: 'visualization',
     children: [

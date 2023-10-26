@@ -65,6 +65,9 @@ const i18n = {
     'menu.blog.blogTypeList': 'Article Type',
     'menu.blog.addBlog': 'Add Article',
     'menu.blog.editBlog': 'Edit Article',
+    'menu.project': 'Project Management',
+    'menu.project.projectList': 'Project List',
+    'menu.project.addProject': 'Add Project',
   },
   'zh-CN': {
     'menu.dashboard': '仪表盘',
@@ -130,6 +133,9 @@ const i18n = {
     'menu.blog.blogTypeList': '文章分类',
     'menu.blog.addBlog': '添加文章',
     'menu.blog.editBlog': '编辑文章',
+    'menu.project': '项目管理',
+    'menu.project.projectList': '项目列表',
+    'menu.project.addProject': '添加项目',
   },
 };
 

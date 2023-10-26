@@ -130,7 +130,6 @@ function Banner() {
             await runAsync();
             setVisible(false);
           } catch (e) {
-            console.log(e);
             Message.error(e);
           }
         }}

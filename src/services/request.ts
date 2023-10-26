@@ -26,6 +26,11 @@ service.interceptors.request.use(
 /** 配置响应拦截器 */
 service.interceptors.response.use(
   (response) => {
+    console.log(
+      '%c [ response ]-29',
+      'font-size:13px; background:pink; color:#bf2c9f;',
+      response
+    );
     if (response.headers.authentication) {
       // 响应头里面如果有这个字段，我们需要将这个字段存储到 localstorage，之后的请求都需要将这个 token 带到服务器
       // 这一步很重要，一定要将 token 存储到本地
@@ -44,7 +49,7 @@ service.interceptors.response.use(
       });
       throw new Error(response.data.msg);
     }
-    if (response.data.code !== 0) {
+    if (response.data.code !== 0 && response.data.code) {
       Notification.error({
         content: response.data.code + '：' + response.data.msg,
       });

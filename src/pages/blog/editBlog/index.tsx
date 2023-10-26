@@ -36,12 +36,6 @@ export default function EditBlog(props) {
   useEffect(() => {
     if (!!query.id) {
       const initValue = data.data || {};
-      console.log(
-        '%c [ initValue ]-39',
-        'font-size:13px; background:pink; color:#bf2c9f;',
-        initValue
-      );
-
       form.setFieldsValue({
         ...initValue,
         content: initValue.markdownContent || initValue.htmlContent || '',
