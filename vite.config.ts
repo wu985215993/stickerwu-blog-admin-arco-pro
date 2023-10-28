@@ -10,13 +10,13 @@ export default defineConfig({
   server: {
     proxy: {
       '/res': {
-        target: 'http://8.130.39.8:7001',
+        target: 'http://stickerwu.net:7001',
       },
       '/api': {
-        target: 'http://8.130.39.8:7001',
+        target: 'http://stickerwu.net:7001',
       },
       '/static': {
-        target: 'http://8.130.39.8:7001',
+        target: 'http://stickerwu.net:7001',
       },
     },
   },

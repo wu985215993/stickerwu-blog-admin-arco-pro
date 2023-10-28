@@ -11,19 +11,19 @@ export default function LoginBanner() {
       slogan: t['login.banner.slogan1'],
       subSlogan: t['login.banner.subSlogan1'],
       image:
-        'http://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6c85f43aed61e320ebec194e6a78d6d3.png~tplv-uwbnlip3yd-png.png',
+        'https://wuchangwei.oss-cn-wulanchabu.aliyuncs.com/public/images/653be1911a053737e69f2b2d1698423186403-16984236430712433.png',
     },
     {
       slogan: t['login.banner.slogan2'],
       subSlogan: t['login.banner.subSlogan2'],
       image:
-        'http://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6c85f43aed61e320ebec194e6a78d6d3.png~tplv-uwbnlip3yd-png.png',
+        'https://wuchangwei.oss-cn-wulanchabu.aliyuncs.com/public/images/653be1911a053737e69f2b2d1698423186622-16984236913243368.png',
     },
     {
       slogan: t['login.banner.slogan3'],
       subSlogan: t['login.banner.subSlogan3'],
       image:
-        'http://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6c85f43aed61e320ebec194e6a78d6d3.png~tplv-uwbnlip3yd-png.png',
+        'https://wuchangwei.oss-cn-wulanchabu.aliyuncs.com/public/images/653be1911a053737e69f2b2d1698423186796-16984237276169358.png',
     },
   ];
   return (

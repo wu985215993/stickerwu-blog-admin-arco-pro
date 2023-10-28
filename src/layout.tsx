@@ -16,6 +16,7 @@ import {
   IconHome,
   IconBook,
   IconGithub,
+  IconBranch,
 } from '@arco-design/web-react/icon';
 import { useSelector } from 'react-redux';
 import qs from 'query-string';
@@ -65,6 +66,8 @@ function getIconFromKey(key) {
       return <IconUser className={styles.icon} />;
     case 'setting':
       return <IconSettings className={styles.icon} />;
+    case 'message':
+      return <IconBranch className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }
