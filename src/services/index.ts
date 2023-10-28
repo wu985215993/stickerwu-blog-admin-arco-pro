@@ -6,3 +6,4 @@ export * from './blogTypeService';
 export * from './projectService';
 export * from './aboutService';
 export * from './messageService';
+export * from './commentService';

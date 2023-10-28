@@ -17,6 +17,7 @@ import {
   IconBook,
   IconGithub,
   IconBranch,
+  IconMessage,
 } from '@arco-design/web-react/icon';
 import { useSelector } from 'react-redux';
 import qs from 'query-string';
@@ -68,6 +69,8 @@ function getIconFromKey(key) {
       return <IconSettings className={styles.icon} />;
     case 'message':
       return <IconBranch className={styles.icon} />;
+    case 'comment':
+      return <IconMessage className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }
@@ -297,7 +300,7 @@ function PageLayout() {
                   </Route>
                   <Route
                     path="*"
-                    component={lazyload(() => import('./pages/exception/403'))}
+                    component={lazyload(() => import('./pages/exception/404'))}
                   />
                 </Switch>
               </Content>

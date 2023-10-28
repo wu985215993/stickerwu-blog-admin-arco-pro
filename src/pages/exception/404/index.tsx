@@ -14,10 +14,14 @@ function Exception404() {
         status="404"
         subTitle={t['exception.result.404.description']}
         extra={[
-          <Button key="again" style={{ marginRight: 16 }}>
+          <Button
+            key="again"
+            style={{ marginRight: 16 }}
+            onClick={() => window.location.reload()}
+          >
             {t['exception.result.404.retry']}
           </Button>,
-          <Button key="back" type="primary">
+          <Button key="back" type="primary" onClick={() => history.back()}>
             {t['exception.result.404.back']}
           </Button>,
         ]}

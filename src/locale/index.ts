@@ -70,7 +70,8 @@ const i18n = {
     'menu.project.addProject': 'Add Project',
     'menu.about': 'About Me',
     'menu.setting': 'Setting',
-    'menu.message': 'message board',
+    'menu.message': 'Message Board',
+    'menu.comment': 'Comment Board',
   },
   'zh-CN': {
     'menu.dashboard': '仪表盘',
@@ -142,6 +143,7 @@ const i18n = {
     'menu.about': '关于我',
     'menu.setting': '设置',
     'menu.message': '留言板',
+    'menu.comment': '评论管理',
   },
 };
 
